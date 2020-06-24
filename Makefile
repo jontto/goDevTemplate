@@ -1,6 +1,5 @@
 all: bin/example
-#test: lint unit-test
-test: unit-test
+test: lint unit-test
 
 PLATFORM=local
 
@@ -12,4 +11,8 @@ bin/example:
 
 .PHONY: unit-test
 unit-test:
-	@docker build . --memory=4g --target unit-test
+	@docker build . --target unit-test
+
+.PHONY: lint
+lint:
+	@docker build . --target lint

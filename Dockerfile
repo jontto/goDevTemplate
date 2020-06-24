@@ -16,6 +16,14 @@ FROM base as unit-test
 RUN --mount=type=cache,target=/root/.cache/go-build \
 go test -v .
 
+FROM golangci/golangci-lint:v1.27-alpine AS lint-base
+
+FROM base AS lint
+COPY --from=lint-base /usr/bin/golangci-lint /usr/bin/golangci-lint
+RUN --mount=type=cache,target=/root/.cache/go-build \
+--mount=type=cache,target=/root/.cache/golangci-lint \
+golangci-lint run --timeout 10m0s ./...
+
 FROM scratch AS bin-unix
 COPY --from=build /out/example /
 
