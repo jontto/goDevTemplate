@@ -17,10 +17,15 @@ jobs:
                           run: make unit-test
                         - name: Build Linux binary
                           run: make PLATFORM=linux/amd64
-                        - name: Build Window binary
+                        - name: Build Windows binary
                           run: make PLATFORM=windows/amd64
-                        - name: Archive artifacts
+                        - name: Archive artifacts Linux
                           uses: actions/upload-artifact@v1
                           with:
                                   name: example
-                                  path: bin/*
+                                  path: bin/example
+                        - name: Upload Windows artifact 
+                          uses: actions/upload-artifact@v1
+                          with:
+                                  name: example.exe
+                                  path: example.exe
