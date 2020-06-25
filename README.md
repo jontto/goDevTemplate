@@ -6,4 +6,8 @@ Template project for Golang projects.
 
 ## Background
 
-Based on awesome blog series from Docker: https://www.docker.com/blog/tag/go-env-series/
+Based on awesome blog series from Chris Crone on Docker blog:
+
+https://www.docker.com/blog/tag/go-env-series/
+
+https://github.com/chris-crone/containerized-go-dev
