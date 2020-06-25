@@ -19,3 +19,8 @@ jobs:
                           run: make PLATFORM=linux/amd64
                         - name: Build Window binary
                           run: make PLATFORM=windows/amd64
+                        - name: Archive artifacts
+                          uses: actions/upload-artifact@v1
+                          with:
+                                  name: example
+                                  path: bin/*
