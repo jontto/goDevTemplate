@@ -19,7 +19,7 @@ jobs:
                           run: make PLATFORM=linux/amd64
                         - name: Build Windows binary
                           run: make PLATFORM=windows/amd64
-                        - name: Archive artifacts Linux
+                        - name: Archive Linux artifact
                           uses: actions/upload-artifact@v1
                           with:
                                   name: example
@@ -28,4 +28,4 @@ jobs:
                           uses: actions/upload-artifact@v1
                           with:
                                   name: example.exe
-                                  path: example.exe
+                                  path: bin/example.exe
